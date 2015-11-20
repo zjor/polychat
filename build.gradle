@@ -1,0 +1,25 @@
+group 'cz.zjor.toys'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'jetty'
+
+httpPort=7001
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.springframework:spring-context:4.1.5.RELEASE'
+    compile 'org.springframework:spring-core:4.1.5.RELEASE'
+    compile 'org.springframework:spring-web:4.1.5.RELEASE'
+    compile 'org.springframework:spring-webmvc:4.1.5.RELEASE'
+
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+
+// to run: gradle jettyRunWar
