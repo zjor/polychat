@@ -21,6 +21,7 @@
                 login-page="/enter"
                 default-target-url="/chat"/>
         <logout logout-success-url="/enter"/>
+        <csrf disabled="true"/>
     </http>
 
     <authentication-manager alias="authenticationManager">
