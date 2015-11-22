@@ -5,43 +5,47 @@ apply plugin: 'java'
 apply plugin: 'war'
 apply plugin: 'jetty'
 
-httpPort=7001
+httpPort = 7001
 
 sourceCompatibility = 1.8
 
 configurations {
-    provided
+	provided
 }
 
 sourceSets {
-    main.compileClasspath += configurations.provided
-    test.compileClasspath += configurations.provided
-    test.runtimeClasspath += configurations.provided
+	main.compileClasspath += configurations.provided
+	test.compileClasspath += configurations.provided
+	test.runtimeClasspath += configurations.provided
 }
 
 repositories {
-    mavenCentral()
+	mavenCentral()
 }
 
 dependencies {
 
-    compile 'org.projectlombok:lombok:1.14.8'
-    compile 'org.slf4j:slf4j-log4j12:1.7.5'
+	compile 'org.projectlombok:lombok:1.14.8'
+	compile 'org.slf4j:slf4j-log4j12:1.7.5'
+	compile 'javax.inject:javax.inject:1'
 
-    compile 'javax.servlet:jstl:1.2'
-    provided 'taglibs:standard:1.1.2'
-    provided 'javax.servlet.jsp:jsp-api:2.0'
+	compile 'com.google.code.findbugs:jsr305:2.0.1'
 
-    compile 'org.springframework:spring-context:4.1.5.RELEASE'
-    compile 'org.springframework:spring-core:4.1.5.RELEASE'
-    compile 'org.springframework:spring-web:4.1.5.RELEASE'
-    compile 'org.springframework:spring-webmvc:4.1.5.RELEASE'
+	compile 'javax.servlet:jstl:1.2'
+	provided 'taglibs:standard:1.1.2'
+	provided 'javax.servlet.jsp:jsp-api:2.0'
 
-    compile 'org.springframework.security:spring-security-web:4.0.3.RELEASE'
-    compile 'org.springframework.security:spring-security-config:4.0.3.RELEASE'
-    compile 'org.springframework.security:spring-security-taglibs:4.0.3.RELEASE'
+	compile 'org.springframework:spring-context:4.1.5.RELEASE'
+	compile 'org.springframework:spring-core:4.1.5.RELEASE'
+	compile 'org.springframework:spring-web:4.1.5.RELEASE'
+	compile 'org.springframework:spring-webmvc:4.1.5.RELEASE'
 
-    testCompile group: 'junit', name: 'junit', version: '4.11'
+	compile 'org.springframework.security:spring-security-web:4.0.3.RELEASE'
+	compile 'org.springframework.security:spring-security-config:4.0.3.RELEASE'
+	compile 'org.springframework.security:spring-security-taglibs:4.0.3.RELEASE'
+
+	testCompile 'junit:junit:4.11'
+	testCompile 'org.springframework:spring-test:4.1.5.RELEASE'
 }
 
 // to run: gradle jettyRunWar
